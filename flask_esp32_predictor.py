@@ -9,7 +9,7 @@ model = joblib.load("lettuce_harvest_predictor.pkl")
 
 app = Flask(__name__)
 
-@app.route('/predict', methods=['GET'])
+@app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
     try:
