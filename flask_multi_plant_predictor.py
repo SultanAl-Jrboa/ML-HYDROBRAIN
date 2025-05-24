@@ -1,5 +1,6 @@
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS  
 import joblib
 import numpy as np
 import pandas as pd
@@ -8,6 +9,20 @@ import pandas as pd
 model = joblib.load("multi_plant_harvest_predictor.pkl")
 
 app = Flask(__name__)
+
+# Enable CORS for all routes with specific origins
+CORS(app, resources={
+    r"/predict": {
+        "origins": [
+            "http://127.0.0.1:5500",  
+            "http://localhost:5500",   
+            "https://hydrobrain.ngrok.dev",  
+            "https://hydrobrain.sultanaljarboa.sa"  
+        ],
+        "methods": ["POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Accept", "Origin"]
+    }
+})
 
 @app.route('/predict', methods=['POST'])
 def predict():
