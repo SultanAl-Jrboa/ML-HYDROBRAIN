@@ -17,7 +17,7 @@ CORS(app, resources={
             "http://127.0.0.1:5500",  
             "http://localhost:5500",   
             "https://hydrobrain.ngrok.dev",  
-            "https://hydrobrain.sultanaljrboa.sa/"
+            "https://hydrobrain.sultanaljrboa.sa"
         ],
         "methods": ["POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Accept", "Origin"]
